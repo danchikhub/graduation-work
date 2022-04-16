@@ -4,6 +4,7 @@ const sequelize = require('./db');
 const cors = require('cors');
 const cookieParser = require('cookie-parser')
 const router = require('./routes/index');
+const errorMiddleware = require('./middleware/error-middleware');
 const app = express();
 
 app.use(express.json());
@@ -13,6 +14,7 @@ app.use(cors({
     origin: process.env.CLIENT_URL
 }));
 app.use('/api', router);
+app.use(errorMiddleware);
 const PORT = process.env.PORT || 5000;
 
 
