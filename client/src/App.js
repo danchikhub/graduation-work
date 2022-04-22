@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useContext, useEffect} from 'react';
+import Header from './components/header/Header';
+import {Routes, Route} from 'react-router-dom';
+import { Context } from './index';
+import About from './pages/About';
+import Auth from './pages/Auth';
+import Registration from './pages/Registration';
 
 function App() {
+  const {userStore} = useContext(Context);
+  console.log(userStore)
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+        userStore.checkAuth()
+    }
+}, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header></Header>
+      <Routes>
+        <Route path='/about' element={<About/>} />
+        <Route path='/login' element={<Auth/>} />
+        <Route path='/registration' element={<Registration/>} />
+      </Routes>
     </div>
+      
   );
 }
 

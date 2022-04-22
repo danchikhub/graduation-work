@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap');
+.registration-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+}
+.registration {
+    flex-basis: 30%;
+    background: #4799cb;
+    padding: 40px 0;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    border-radius: 10px;
+}
+.registration h2 {
+    text-align: center;
+    color: #fff;
+}
+.registration input {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px 0;
+    margin: 20px auto;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+}
+.registration button {
+    display: block;
+    margin: 0 auto 15px auto;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    background: #fff;
+    color: #4799cb;
+    padding: 10px 25px;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+}
+.registration button:hover {
+    color: #fff;
+    background: #20323C;
+    cursor: pointer;
+}
+.registration span {
+    color: #E7E7E7;
+    font-size: 14px;
+    
+}
+.registration a:hover {
+    color: #fff;
+    cursor: pointer;
+}
+::placeholder {
+    font-family: 'Nunito', sans-serif;
+    color:aliceblue;
+    opacity: 0.8; /* Firefox */
+}
