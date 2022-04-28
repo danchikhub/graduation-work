@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './header.css';
 import logo from '../../assets/logo.png';
 import profileMenuIcon from '../../resources/icons/profile-menu_icon.svg';
 import { Context } from '../../index';
 import { observer } from "mobx-react-lite";
+import ProfileMenu from '../profile/ProfileMenu';
 const Header = () => {
     const { userStore } = useContext(Context);
+    const [modalActive, setModalActive] = useState(false);
     console.log(userStore)
     return (
         <div className='header'>
@@ -33,13 +35,14 @@ const Header = () => {
 
                     {
                         userStore.isAuth ?
-                            <div className="profile_wrapper">
-                                <h2 className='user_last-name'>{userStore.user.email}</h2>
+                            <div onClick={() => { modalActive ? setModalActive(false) : setModalActive(true)} } className="profile_wrapper">
+                                <h2 className='user_last-name'>{userStore.user.first_name}</h2>
                                 <svg class="profile-menu_arrow">
                                     <use xlinkHref={`${profileMenuIcon}#profile-arrow`}></use>
                                 </svg>
+                                <ProfileMenu active={modalActive} setActive={setModalActive}/>
                             </div>
-
+                            
 
                             :
 

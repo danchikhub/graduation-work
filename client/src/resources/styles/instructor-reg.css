@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap');
+
+.instructor-reg {
+    width: 100%;
+    height: 100vh;
+    background: #dfdfdf;
+}
+.instructor-reg h2 {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 30px;
+    color: #2f4ad0;
+    padding: 30px 0;
+}
+.instructor-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.instructor-wrapper input,
+select,
+button,
+textarea {
+    display: block;
+}
+.left-block {
+    margin-right: 30px;
+}
+.left-block input {
+    font-family: 'Nunito', sans-serif;
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 8px 6px -6px #555;
+    color: #555;
+    margin: 16px 0;
+}
+
+.left-block input::placeholder {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #555;
+}
+
+.select-instructor {
+
+    padding: 7px 0px 7px 12px;
+    width: 100%;
+    border: 1px solid #E8EAED;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 6px -6px #555;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 150ms ease;
+    color: #555;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    margin: 16px 0;
+}
+
+.select-instructor:required:invalid {
+    color: #5A667F;
+}
+
+.select-instructor option {
+    color: #223254;
+}
+
+.select-instructor[value=""][disabled] {
+
+    /* display: none; */
+}
+
+
+.select-instructor:focus {
+    outline: none;
+    border-color: #555;
+    box-shadow: 0 0 0 2px rgba(#0077FF, .2);
+}
+
+
+.select-instructor:hover {
+    stroke: #0077FF;
+}
+
+.biography {
+    resize: none;
+    width: 400px;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 8px 6px -6px #555;
+    padding: 8px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #555;
+    outline: none;
+    margin: 16px 0;
+}
+
+.biography::placeholder {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #555;
+}
+
+.right-block button {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    background: #2f4ad0;
+    margin: 16px 0 50px 0;
+    padding: 8px 16px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 8px 6px -6px #555;
+
+}

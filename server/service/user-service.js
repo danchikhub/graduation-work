@@ -1,10 +1,15 @@
 const UserModel = require('../models/user-model');
+const RoleModel = require('../models/role-model');
 const bcrypt = require('bcrypt');
 const tokenService = require('./token-service');
 const UserDto = require('../dtos/user-dto');
 const ApiError = require('../exceptions/api-error');
 class UserService {
     async registration(first_name, last_name, email, password) {
+        const role = await RoleModel.findOne({
+            where: {role_name: "student"}
+        })
+        console.log('role', role.id)
         const candidate = await UserModel.findOne({
             where: {email: email}
         });
@@ -17,11 +22,12 @@ class UserService {
             last_name: last_name,
             email: email,
             password: hashPassword,
+            role_id: role.id
         });
         const userDto = new UserDto(user);
         const tokens = tokenService.generateTokens({...userDto});
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
-        console.log(`userDton ${user.id}`)
+        console.log(`userDton ${userDto.role}`)
         return {...tokens, user: userDto}
     }
     async login(email, password) {

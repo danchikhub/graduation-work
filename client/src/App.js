@@ -5,6 +5,7 @@ import { Context } from './index';
 import About from './pages/About';
 import Auth from './pages/Auth';
 import Registration from './pages/Registration';
+import IstructorRegistration from './pages/InstructorRegistration';
 
 function App() {
   const {userStore} = useContext(Context);
@@ -21,6 +22,7 @@ function App() {
         <Route path='/about' element={<About/>} />
         <Route path='/login' element={<Auth/>} />
         <Route path='/registration' element={<Registration/>} />
+        <Route path='/instructor-registration' element={<IstructorRegistration/>} />
       </Routes>
     </div>
       
