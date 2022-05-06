@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap');
+body{
+    background: #dfdfdf;
+}
+.course-wrapper {
+    display: flex;
+    padding: 20px 20px;
+}
+.course-create {
+    flex-basis: 60%;
+}
+.aside-inner {
+    flex-basis: 25%;
+    margin-right: 20px;
+}
+
+.course-create_wrapper {
+    display: flex;
+    
+}
+
+.course-create_wrapper input, select, textarea {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 8px 6px -6px #555;
+    color: #555;
+}
+
+.course-create_file {
+    background: none;
+}
+
+.course-create_wrapper select {
+    padding: 7px 0px 7px 12px;
+    width: 100%;
+    border: 1px solid #E8EAED;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 6px -6px #555;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 150ms ease;
+    color: #555;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+   
+}
+
+.course-create_wrapper input:not(.course-create_wrapper input:first-child) {
+    margin: 20px 0 ;
+}
+.course-create_wrapper textarea {
+    resize: none;
+    width: 400px;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 8px 6px -6px #555;
+    padding: 8px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #555;
+    outline: none;
+    margin-left: 20px;
+}
+
+.theme-create_button {
+  
+        font-family: 'Nunito', sans-serif;
+        font-size: 14px;
+        background: #D2CFCF;
+        margin: 16px 0 20px 0;
+        padding: 8px 16px;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        
+        box-shadow: 0 8px 6px -6px #555;
+        
+    
+   
+}
+.theme-create_button.active {
+    cursor: pointer;
+    background: #4799cb;
+}
+
+.course-create_button {
+         font-family: 'Nunito', sans-serif;
+        font-size: 14px;
+        background: #7BC74E;
+        margin: 16px 0 20px 0;
+        padding: 8px 16px;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 8px 6px -6px #555;
+}
+
+.theme-wrapper {
+    display: none;
+    margin-bottom: 20px;
+    }
+.theme-wrapper.active {
+    display: flex;
+}
+.theme-wrapper input {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 8px 6px -6px #555;
+    color: #555;
+}
+.theme-wrapper__input {
+   margin-bottom: 20px;
+}
+.theme-wrapper textarea {
+   
+    resize: none;
+    width: 400px;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 8px 6px -6px #555;
+    padding: 8px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #555;
+    outline: none;
+    margin-left: 20px;
+}
+.theme-wrapper button {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    background: #7BC74E;
+    margin: 16px 0 0px 0;
+    padding: 8px 16px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 8px 6px -6px #555;
+}

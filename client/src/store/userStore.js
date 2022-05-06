@@ -2,7 +2,7 @@ import axios from "axios";
 import {makeAutoObservable} from "mobx";
 import AuthService from "../services/AuthService";
 import UserService from "../services/UserService";
-import { API_URL } from "../http";
+import { API_URL } from "../http/index";
 export default class UserStore {
     user = {}
     isAuth = false
@@ -63,6 +63,16 @@ export default class UserStore {
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    async logout() {
+        try {
+            const response  = await AuthService.logout();
+            localStorage.removeItem('token');
+            this.setAuth(false);
+            this.setUser({})
         } catch (error) {
             console.log(error)
         }

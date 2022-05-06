@@ -12,4 +12,4 @@ const Instructor = sequelize.define('instructor', {
     user_id: {type: DataTypes.INTEGER}
 })
 
-module.exports = Instructor;
+module.exports = Instructor;                    

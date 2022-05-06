@@ -11,14 +11,14 @@ const ProfileMenu = ({active, setActive}) => {
                 <li className="profile-list_item">
                     {
                         userStore.isInstructor === true ? 
-                        <Link className="profile-list_link" to={'/instructor-registration'}>Кабинет</Link>
+                        <Link className="profile-list_link" to={'/cabinet'}>Кабинет</Link>
                         :
                         <Link className="profile-list_link" to={'/instructor-registration'}>Зарегистрироваться как преподаватель</Link>
                     }
                     
                 </li>
                 <li className="profile-list_item">
-                    <Link className="profile-list_link" to={'/instructor-registration'}>Выйти</Link>
+                    <Link onClick={() => {userStore.logout()}} className="profile-list_link" to={'/'}>Выйти</Link>
                 </li>
             </ul>
         </div>

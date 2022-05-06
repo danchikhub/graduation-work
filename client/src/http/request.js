@@ -9,3 +9,8 @@ export const fetchUnivers = async () => {
     const {data} = await $api.get('/univers');
     return data
 }
+
+export const fetchCategories = async () => {
+    const {data} = await $api.get('/categories');
+    return data
+}
