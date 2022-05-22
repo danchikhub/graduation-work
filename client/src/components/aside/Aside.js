@@ -8,7 +8,7 @@ const Aside = () => {
         <div className="aside-wrapper">
             <ul className="aside-list">
                 <li className="aside-item">
-                   <Link className='aside-link' to='/'>Панель</Link>
+                   <Link className='aside-link' to='/cabinet'>Панель</Link>
                 </li>
                 <li className="aside-item">
                    <Link className='aside-link' to='/cabinet/course'>Курсы</Link>

@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.course-item {
+    width: 300px;
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 5px 30px 0px rgb(0 0 0 / 20%);
+}
+
+.course-item_img {
+    max-width: 275px;
+    height: 155px;
+}
+
+.course-item_univer {
+    color: #545454;
+    margin-top: 15px;
+}
+
+.course-item_title {
+    font-size: 21px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.course-item_button {
+    
+    padding: 8px 30px;
+    font-size: 14px;
+    line-height: 120%;
+    max-width: 200px;
+    margin: 0 auto;
+    color: #292929;
+    border: 2px solid #F1CDB3;
+    border-radius: 100px;
+    background: #FAFAFA;
+    margin-bottom: 30px;
+    transition: 0.3s;
+}
+
+.course-item_button:hover {
+    cursor: pointer;
+    background: #F1CDB3;
+}

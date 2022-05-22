@@ -16,14 +16,14 @@ const Header = () => {
                 <div className='nav-wrapper'>
                     <div className='wrapper'>
                         <div className='logo-wrapper'>
-                            <a href='/'>
+                            <Link to='/'>
                                 <img src={logo} />
-                            </a>
+                            </Link>
                         </div>
                         <nav className='nav'>
                             <ul className='nav-list'>
                                 <li className='nav-list_item'>
-                                    <Link to='/' className='nav-list_link'>Курсы</Link>
+                                    <Link to='/courses' className='nav-list_link'>Курсы</Link>
                                 </li>
                                 <li className='nav-list_item'>
                                     <Link to='/about' className='nav-list_link'>О проекте</Link>

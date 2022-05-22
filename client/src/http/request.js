@@ -14,3 +14,49 @@ export const fetchCategories = async () => {
     const {data} = await $api.get('/categories');
     return data
 }
+
+export const fetchCourses = async (categoryId, univerId) => {
+    const {data} = await $api.get('/courses', {params: {
+        categoryId, univerId
+    }});
+    
+    return data
+}
+
+export const fetchCoursesSearch = async (searchWord) => {
+    const {data} = await $api.get('/courses-search', {params: {
+        searchWord
+    }});
+    
+    return data
+}
+
+export const fetchCoursesPanel = async (instructor) => {
+    
+     const {data} = await $api.get('/course-panel', {params: {
+         instructor
+     }});
+    
+     return data
+}
+
+export const fetchCourseOneEdit = async (id) => {
+    const {data} = await $api.get('/course-edit', {params: {
+        id
+    }})
+    return data
+}
+export const fetchCourse = async (id) => {
+    const {data} = await $api.get('/course', {params: {
+        id
+    }})
+    return data
+}
+export const fetchThemes = async (course_id) => {
+    const {data} = await $api.get('/themes', {
+        params: {
+            course_id
+        }
+    })
+    return data
+}

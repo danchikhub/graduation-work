@@ -8,6 +8,11 @@ import Registration from './pages/Registration';
 import IstructorRegistration from './pages/InstructorRegistration';
 import Cabinet from './pages/Cabinet';
 import Course from './pages/Course';
+import CourseView from './pages/CourseView';
+import Edit from './pages/Edit';
+import CoursePage from './pages/CoursePage';
+import Main from './pages/Main'
+
 function App() {
   const {userStore} = useContext(Context);
   console.log(userStore)
@@ -26,6 +31,10 @@ function App() {
         <Route path='/instructor-registration' element={<IstructorRegistration/>} />
         <Route path='/cabinet' element={<Cabinet/>}/>
         <Route path="/cabinet/course" element={<Course/>}/>
+        <Route path="/courses" element={<CourseView/>}/>
+        <Route path='/edit/:id' element={<Edit/>}/>
+        <Route path='/course/:id' element={<CoursePage/>}/>
+        <Route path='/' element={<Main/>}/>
       </Routes>
     </div>
       

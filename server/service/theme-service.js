@@ -11,6 +11,28 @@ class ThemeService {
         return theme
         
     }
+    async getThemes(course_id) {
+        const themes = await ThemeModel.findAll({
+            where: {course_id: course_id}
+        })
+        return themes;
+    }
+    async updateTheme(theme_title, theme_desc,fileName, theme_id) {
+        const theme = await ThemeModel.update({
+            theme_title: theme_title,
+            theme_desc: theme_desc,
+            theme_file: fileName
+        }, {
+            where: {id: theme_id}
+        })
+        return theme
+    }
+    async deleteTheme(theme_id) {
+        const theme = await ThemeModel.destroy({
+            where: {id: theme_id}
+        })
+        return theme
+    }
 }
 
 module.exports = new ThemeService();

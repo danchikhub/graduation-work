@@ -32,9 +32,9 @@ export default class UserStore {
             if(response.data.user.role === 2) {
                 this.setInstructor(true)
             }
-            console.log(response.data)
+            return response
         } catch (error) {
-            console.log(error)
+            return error.response
         }
     }
 
@@ -63,6 +63,9 @@ export default class UserStore {
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
+            if(response.data.user.role === 2) {
+                this.setInstructor(true)
+            }
         } catch (error) {
             console.log(error)
         }

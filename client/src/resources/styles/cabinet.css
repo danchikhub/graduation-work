@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.cabinet-wrapper {
+    display: flex;
+    padding: 20px 20px;
+}
+
+.courses-item {
+    display: flex;
+    gap: 20px;
+}
+
+table {
+    border-spacing: 0;
+    text-align: center;
+}
+
+td, th {
+    padding: 10px 15px;
+}
+
+td {
+    background-color: #E6DDEE;
+    border-top: 1px solid #fff;
+}
+
+.region {
+    flex-basis: 70%;
+    color: #434E74;
+}
+
+.region th {
+    background-color: #889BD3;
+}
+
+.region tr:nth-child(2){
+    border-top: none;
+    font-weight: bold;
+}
+.region tr:nth-child(2) td{
+    border-top: none;
+}
