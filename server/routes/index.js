@@ -28,4 +28,5 @@ router.get('/levels', levelController.getAll);
 router.get('/univers', UniversityController.getAll);
 router.get('/categories', categoryController.getAll);
 router.post('/instructor-registration', instructorController.instructorRegistration);
+router.get('/univers-rating', UniversityController.getUniverRating)
 module.exports = router;

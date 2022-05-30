@@ -26,6 +26,7 @@ const IstructorRegistration = () => {
     }
     const onUniverSelectChange = e => {
         const univer_id = e.target.options[e.target.selectedIndex].value;
+        console.log(univer_id)
         setUniversity(univer_id)
     }
     <CustomSelect id="level" options={levels} onSelect={onLevelsSelectChange}></CustomSelect>

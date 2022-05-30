@@ -60,3 +60,8 @@ export const fetchThemes = async (course_id) => {
     })
     return data
 }
+
+export const fetchUniversRating = async () => {
+    const {data} = await $api.get('/univers-rating');
+    return data
+}

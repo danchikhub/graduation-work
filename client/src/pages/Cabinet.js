@@ -18,7 +18,7 @@ const Cabinet = observer(() => {
     const history = useNavigate()
     useEffect(() => {
         fetchCoursesPanel(userStore.user.id).then(data => setCourses(data))
-    }, [])
+    }, [userStore.user.id])
     
     const courseDelete = () => {
         deleteCourse(course.id)
@@ -40,9 +40,7 @@ const Cabinet = observer(() => {
                 <td>№</td>
                 <td>Название</td>
                 <td>Учебное задедение</td>
-               
                 <td>Категория</td>
-                
                 <td colspan="2"></td>
                 
             </tr>
