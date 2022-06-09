@@ -1,11 +1,5 @@
 require('dotenv').config()
-const UniversityModel = require('./models/university-model');
-const LevelModel = require('./models/level-model');
-const RoleModel = require('./models/role-model');
-const CategoryModel = require('./models/category-model');
-const CourseModel = require('./models/course-model')
 const express = require('express');
-const CourseRating = require('./models/courseRating-model');
 const sequelize = require('./db');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');

@@ -26,7 +26,7 @@ const Header = () => {
                                     <Link to='/courses' className='nav-list_link'>Курсы</Link>
                                 </li>
                                 <li className='nav-list_item'>
-                                    <Link to='/about' className='nav-list_link'>О проекте</Link>
+                                    <Link to='/lectures' className='nav-list_link'>Лекции</Link>
                                 </li>
                             </ul>
                         </nav>

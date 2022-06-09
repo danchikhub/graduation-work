@@ -12,10 +12,11 @@ import CourseView from './pages/CourseView';
 import Edit from './pages/Edit';
 import CoursePage from './pages/CoursePage';
 import Main from './pages/Main'
-
+import LectureView from './pages/LectureView';
+import Lecture from './pages/Lecture';
+import LecturePage from './pages/LecturePage';
 function App() {
   const {userStore} = useContext(Context);
-  console.log(userStore)
   useEffect(() => {
     if (localStorage.getItem('token')) {
         userStore.checkAuth()
@@ -31,9 +32,12 @@ function App() {
         <Route path='/instructor-registration' element={<IstructorRegistration/>} />
         <Route path='/cabinet' element={<Cabinet/>}/>
         <Route path="/cabinet/course" element={<Course/>}/>
+        <Route path="/cabinet/lecture" element={<LectureView/>}/>
         <Route path="/courses" element={<CourseView/>}/>
+        <Route path="/lectures" element={<Lecture/>}/>
         <Route path='/edit/:id' element={<Edit/>}/>
         <Route path='/course/:id' element={<CoursePage/>}/>
+        <Route path='/lecture/:id' element={<LecturePage/>}/>
         <Route path='/' element={<Main/>}/>
       </Routes>
     </div>

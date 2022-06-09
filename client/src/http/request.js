@@ -65,3 +65,41 @@ export const fetchUniversRating = async () => {
     const {data} = await $api.get('/univers-rating');
     return data
 }
+
+export const fetchLecturesPanel = async (instructor) => {
+    
+    const {data} = await $api.get('/lecture-panel', {params: {
+        instructor
+    }});
+   
+    return data
+}
+
+export const fetchLecture = async (id) => {
+    const {data} = await $api.get('/lecture-get', {params: {
+        id
+    }})
+    return data
+}
+
+export const fetchLectures = async (categoryId, univerId) => {
+    const {data} = await $api.get('/lectures', {params: {
+        categoryId, univerId
+    }})
+    return data
+}
+
+export const fetchLectureForPage = async (id) => {
+    const {data} = await $api.get('/lecture', {params: {
+        id
+    }})
+    return data
+}
+
+export const fetchLecturesSearch = async (searchWord) => {
+    const {data} = await $api.get('/lectures-search', {params: {
+        searchWord
+    }});
+    
+    return data
+}

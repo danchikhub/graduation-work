@@ -14,7 +14,7 @@ const Aside = () => {
                    <Link className='aside-link' to='/cabinet/course'>Курсы</Link>
                 </li>
                 <li className="aside-item">
-                   <Link className='aside-link' to='/'>Лекции</Link>
+                   <Link className='aside-link' to='/cabinet/lecture'>Лекции</Link>
                 </li>
             </ul>
         </div>

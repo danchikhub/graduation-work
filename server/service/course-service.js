@@ -56,7 +56,11 @@ class CourseService {
         }
     }
     async getAllSearch(word) {
-        const courses = await sequelize.query(`select courses.id,courses.category_id, courses.university_id,courses.course_img,courses.course_title, univers.univer_name, courses.course_title, AVG(course_ratings.rating) AS average_rating 
+        const courses = await sequelize.query(`select courses.id,courses.category_id,
+                                                 courses.university_id,courses.course_img,
+                                                 courses.course_title, univers.univer_name, 
+                                                 courses.course_title, 
+                                                 AVG(course_ratings.rating) AS average_rating 
                                                 from courses 
                                                 left join course_ratings on course_ratings.course_id = courses.id 
                                                 join univers on univers.id =  courses.university_id 

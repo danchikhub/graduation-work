@@ -7,6 +7,7 @@ export default class UserStore {
     user = {}
     isAuth = false
     isInstructor = false
+    isAdmin = false
     constructor() {
         makeAutoObservable(this)
     }
@@ -16,6 +17,9 @@ export default class UserStore {
     }
     setInstructor(bool) {
         this.isInstructor = bool;
+    }
+    setAdmin(bool) {
+        this.isAdmin = bool;
     }
     setUser(user) {
         this.user = user;
@@ -31,6 +35,9 @@ export default class UserStore {
            
             if(response.data.user.role === 2) {
                 this.setInstructor(true)
+            }
+            if(response.data.user.role === 3) {
+                this.setAdmin(true)
             }
             return response
         } catch (error) {
@@ -65,6 +72,9 @@ export default class UserStore {
             this.setUser(response.data.user);
             if(response.data.user.role === 2) {
                 this.setInstructor(true)
+            }
+            if(response.data.user.role === 3) {
+                this.setAdmin(true)
             }
         } catch (error) {
             console.log(error)
