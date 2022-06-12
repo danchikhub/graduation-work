@@ -9,7 +9,6 @@ class UserService {
         const role = await RoleModel.findOne({
             where: {role_name: "student"}
         })
-        console.log('role', role.id)
         const candidate = await UserModel.findOne({
             where: {email: email}
         });
@@ -69,6 +68,19 @@ class UserService {
             await tokenService.saveToken(userDto.id, tokens.refreshToken);
             return {...tokens, user: userDto}
         
+    }
+
+    async getAll() {
+        const users = await UserModel.findAll();
+        return users
+    }
+
+    async delete(user_id) {
+        const user = await UserModel.destroy({
+            where: {id: user_id}
+        })
+
+        return user
     }
 }
 

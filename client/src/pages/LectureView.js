@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
-
 import Aside from '../components/aside/Aside';
 import { Context } from "../index";
 import Modal from "../components/modal/Modal";

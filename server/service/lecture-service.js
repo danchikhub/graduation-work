@@ -1,5 +1,7 @@
 const InstructorModel = require('../models/instructor-model');
 const LectureModel = require('../models/lecture-model');
+const LectureRatingModel = require('../models/lectureRating-model');
+const LectureCommentModel = require('../models/lectureComment-model')
 const { QueryTypes } = require('sequelize');
 const sequelize = require('../db')
 class LectureService {
@@ -116,6 +118,20 @@ class LectureService {
             group by lectures.id, instructors.first_name, instructors.last_name
         `,{type: QueryTypes.SELECT})
         return lecture
+    }
+
+    async setRewiew(lecture_id,user_id, rat, comm) {
+        const ratingRewiew = await LectureRatingModel.create({
+            lecture_id: lecture_id,
+            user_id: user_id,
+            rating: rat
+        })
+        const commentRewiew = await LectureCommentModel.create({
+            lecture_id: lecture_id,
+            user_id: user_id,
+            comment: comm
+        })
+        return {ratingRewiew, commentRewiew}
     }
 }
 module.exports = new LectureService()

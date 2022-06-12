@@ -2,9 +2,11 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { fetchLectureForPage } from "../http/request";
-
+import { setRewiew } from "../services/LectureService";
+import {Context} from "../index";
 import Modal from "../components/modal/Modal";
 const LecturePage = () => {
+    const {userStore} = useContext(Context);
     const [modalActive, setModalActive] = useState(false);
     const { id } = useParams();
     const [lecture, setLecture] = useState({})
@@ -22,15 +24,15 @@ const LecturePage = () => {
     })
     const handleClick = value => {
         setCurrentValue(value)
-      }
-    
-      const handleMouseOver = newHoverValue => {
+    }
+
+    const handleMouseOver = newHoverValue => {
         setHoverValue(newHoverValue)
-      };
-    
-      const handleMouseLeave = () => {
+    };
+
+    const handleMouseLeave = () => {
         setHoverValue(undefined)
-      }
+    }
     console.log(lecture)
     return (
         <div className="container">
@@ -50,7 +52,7 @@ const LecturePage = () => {
                             <p className="course-page__desc">
                                 {lecture.lecture_desc}
                             </p>
-                            
+
                         </div>
                         <a className="theme-page__link lecture" href={process.env.REACT_APP_API_URL + lecture.lecture_file} target="_blank" download>Скачать файл</a>
                     </div>
@@ -71,7 +73,7 @@ const LecturePage = () => {
                             }
                         </div>
                         <p>Дата создания: 2020-10-20</p>
-                        { <p>Создатель: {lecture.first_name + " " + lecture.last_name}</p> }
+                        {<p>Создатель: {lecture.first_name + " " + lecture.last_name}</p>}
                     </div>
                 </div>
 
@@ -97,7 +99,7 @@ const LecturePage = () => {
                     })}
                 </div>
                 <textarea onChange={(e) => setComment(e.target.value)} className="course-comment" name="" id="" cols="30" rows="10"></textarea>
-                <button  className="theme-rating__button">Отправить</button>
+                <button onClick={() => { setRewiew(userStore.user.id, id, currentValue, comment); setModalActive(false)  }} className="theme-rating__button">Отправить</button>
             </Modal>
         </div>
     )

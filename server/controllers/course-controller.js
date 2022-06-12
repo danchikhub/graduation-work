@@ -96,7 +96,7 @@ class CourseController {
     }
     async setRewiew(req, res, next) {
         try {
-            console.log(req.body)
+            
             const {course_id, user_id, rating, comment} = req.body;
             const rewiew = await CourseService.setRewiew(course_id, user_id, rating, comment);
             return res.json(rewiew)

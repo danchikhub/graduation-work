@@ -8,6 +8,9 @@ const categoryController = require('../controllers/category-controller');
 const courseController = require('../controllers/course-controller');
 const themeController = require('../controllers/theme-controller');
 const lectureController = require('../controllers/lecture-controller');
+const univerService = require('../service/univer-service');
+const universityController = require('../controllers/university-controller');
+
 router.post('/registration', userController.registration);
 router.post('/login', userController.login);
 router.post('/logout', userController.logout);
@@ -37,5 +40,25 @@ router.get('/lecture-get', lectureController.getOne)
 router.post('/lecture-delete', lectureController.deleteLecture);
 router.get('/lectures', lectureController.getAll);
 router.get('/lecture', lectureController.getOneLecture);
-router.get('/lectures-search', lectureController.getAllSearch)
+router.get('/lectures-search', lectureController.getAllSearch);
+router.post('/lecture-rewiew', lectureController.setRewiew)
+
+
+router.post('/category-create', categoryController.create);
+router.post('/category-delete', categoryController.delete);
+router.post('/category-update', categoryController.update);
+
+
+router.get('/univers-admin', UniversityController.getUniversAdmin);
+router.post('/univer-create', universityController.create)
+router.post('/univer-delete', universityController.delete)
+router.post('/univer-update', universityController.update)
+
+
+router.post('/level-create', levelController.create)
+router.post('/level-update', levelController.update)
+router.post('/level-delete', levelController.delete)
+
+router.get('/users', userController.getAll);
+router.post('/user-delete', userController.delete)
 module.exports = router;

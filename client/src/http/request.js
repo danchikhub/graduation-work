@@ -103,3 +103,14 @@ export const fetchLecturesSearch = async (searchWord) => {
     
     return data
 }
+
+
+export const fetchUsers = async () => {
+    const {data} = await $api.get('/users')
+    return data
+}
+
+export const deleteUser = async (user_id) => {
+    const {data} = await $api.post('/user-delete', {user_id})
+    return data
+}

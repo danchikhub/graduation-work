@@ -14,5 +14,38 @@ class UniverService {
           })
           return univers_rating
     }
+    async getUniversAdmin() {
+        const univers = await sequelize.query(`
+            select univers.id, univers.univer_name, levels.level_name
+            from univers
+            left join  levels on levels.id = univers.univer_level
+        `, {
+            type: QueryTypes.SELECT
+        })
+        return univers
+    }
+
+    async create(univer_name, level_id) {
+        const univer = await UniversityModel.create({
+            univer_name: univer_name,
+            univer_level: level_id
+        })
+        return univer
+    }
+    async delete(univer_id) {
+        const univer = await UniversityModel.destroy({
+            where: {id: univer_id}
+        })
+        return univer
+    }
+    async update(univer_name, univer_id) {
+        console.log(univer_name)
+        const univer = await UniversityModel.update({
+            univer_name: univer_name
+        }, {
+            where: {id: univer_id}
+        })
+        return univer
+    }
 }
 module.exports = new UniverService()

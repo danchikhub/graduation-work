@@ -11,7 +11,7 @@ const ProfileMenu = ({active, setActive}) => {
                 <li className="profile-list_item">
                     {   
                         userStore.isAdmin === true ?
-                            <Link className="profile-list_link" to={'/cabinet'}>Админ панель</Link>
+                            <Link className="profile-list_link" to={'/category-admin'}>Админ панель</Link>
                         :
                         userStore.isInstructor === true ? 
                         <Link className="profile-list_link" to={'/cabinet'}>Кабинет</Link>

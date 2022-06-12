@@ -15,6 +15,13 @@ import Main from './pages/Main'
 import LectureView from './pages/LectureView';
 import Lecture from './pages/Lecture';
 import LecturePage from './pages/LecturePage';
+
+import CategoryAdmin from './pages/CategoryAdmin';
+import UniversityAdmin from './pages/UniversityAdmin';
+import LevelAdmin from './pages/LevelAdmin';
+import CourseAdmin from './pages/CourseAdmin';
+import LectureAdmin from './pages/LectureAdmin';
+import UserAdmin from './pages/UserAdmin';
 function App() {
   const {userStore} = useContext(Context);
   useEffect(() => {
@@ -39,6 +46,14 @@ function App() {
         <Route path='/course/:id' element={<CoursePage/>}/>
         <Route path='/lecture/:id' element={<LecturePage/>}/>
         <Route path='/' element={<Main/>}/>
+
+        <Route path='/category-admin' element={<CategoryAdmin/>} />
+        <Route path='/unversity-admin' element={<UniversityAdmin/>} />
+        <Route path='/level-admin' element={<LevelAdmin/>} />
+        <Route path='/course-admin' element={<CourseAdmin/>} />
+        <Route path='/lecture-admin' element={<LectureAdmin/>} />
+        <Route path='/user-admin' element={<UserAdmin/>} />
+
       </Routes>
     </div>
       

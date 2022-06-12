@@ -50,6 +50,25 @@ class UserController {
             next(error);
         }
     }
+
+    async getAll(req, res) {
+        try {
+            const users = await userService.getAll();
+            return res.json(users)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async delete(req, res) {
+        try {
+            const {user_id} = req.body
+            const user = await userService.delete(user_id)
+            return res.json(user)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 module.exports = new UserController();
