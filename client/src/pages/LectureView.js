@@ -6,12 +6,14 @@ import SelectComp from '../components/SelectComp';
 import { fetchCategories, fetchLecturesPanel, fetchLecture } from '../http/request';
 import { createLecture, deleteLecture } from '../services/LectureService';
 import {FaEdit} from 'react-icons/fa';
+import {useNavigate} from "react-router-dom";
 import { MdDeleteOutline } from "react-icons/md";
 import '../resources/styles/lecture-create.css'
 const LectureView = () => {
     const [categories, setCategories] = useState([]);
     const [lectures, setLectures] = useState([]);
     const fileRef = useRef(null)
+    const history = useNavigate()
     const { userStore } = useContext(Context);
     useEffect(() => {
         fetchCategories().then(data => setCategories(data))
@@ -85,7 +87,7 @@ const LectureView = () => {
                         <td>Название</td>
                         <td>Учебное задедение</td>
                         <td>Категория</td>
-                        <td colspan="2"></td>
+                        <td colspan="3"></td>
 
                     </tr>
                     {
@@ -96,6 +98,10 @@ const LectureView = () => {
                         <td>{item.univer_name}</td>
                         
                         <td>{item.category_name}</td>
+                        <td>
+                             <a onClick={() => history("/lecture-rewiew" + "/" + item.id)} className="course-item_button">Отзывы</a>
+                        </td>
+                        
                         <td> <span onClick={() => { {fetchOneLecture(item.id); setModalUpdateActive(true)} }}><FaEdit/></span> </td>
                         <td><span onClick={() => { {setDeleteId(item.id); setModalDeleteActive(true)} }}><MdDeleteOutline/></span></td>
                     </tr>

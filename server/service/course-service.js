@@ -128,6 +128,18 @@ class CourseService {
         })
         return {ratingRewiew, commentRewiew}
     }
+
+    async getRewiew(course_id) {
+        const rewiews = await sequelize.query(`
+            select course_comments.id, course_comments.comment, users.first_name 
+            from course_comments
+            left join users on course_comments.user_id = users.id
+            where course_comments.course_id = ${course_id}
+        `,{
+            type: QueryTypes.SELECT
+          })
+        return rewiews
+    }
 }
 
 module.exports = new CourseService();

@@ -104,6 +104,16 @@ class CourseController {
             next(error)
         }
     }
+
+    async getRewiew(req, res) {
+        try {
+            const {course_id} = req.query;
+            const rewiews = await CourseService.getRewiew(course_id)
+            return res.json(rewiews)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 module.exports = new CourseController()

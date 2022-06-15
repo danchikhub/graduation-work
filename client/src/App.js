@@ -22,6 +22,8 @@ import LevelAdmin from './pages/LevelAdmin';
 import CourseAdmin from './pages/CourseAdmin';
 import LectureAdmin from './pages/LectureAdmin';
 import UserAdmin from './pages/UserAdmin';
+import CourseRewiew from './pages/CourseRewiew';
+import LectureRewiew from './pages/LectureRewiew';
 function App() {
   const {userStore} = useContext(Context);
   useEffect(() => {
@@ -44,6 +46,8 @@ function App() {
         <Route path="/lectures" element={<Lecture/>}/>
         <Route path='/edit/:id' element={<Edit/>}/>
         <Route path='/course/:id' element={<CoursePage/>}/>
+        <Route path='/course-rewiew/:id' element={<CourseRewiew/>}/>
+        <Route path='/lecture-rewiew/:id' element={<LectureRewiew/>}/>
         <Route path='/lecture/:id' element={<LecturePage/>}/>
         <Route path='/' element={<Main/>}/>
 

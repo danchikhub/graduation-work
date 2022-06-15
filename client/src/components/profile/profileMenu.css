@@ -18,6 +18,7 @@ a {
 
 .profile-menu.active {
     display: block;
+    z-index: 5;
 }
 
 .profile-menu_list {

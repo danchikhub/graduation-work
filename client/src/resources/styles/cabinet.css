@@ -45,3 +45,26 @@ td {
 .region tr:nth-child(2) td{
     border-top: none;
 }
+
+.rewiew-wrapper {
+
+}
+
+.rewiew {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px 30px;
+    margin-top: 20px;
+}
+.rewiew-title {
+    font-size: 30px;
+    margin-top: 20px;
+}
+.rewiew-name {
+    font-size: 20px;
+    font-weight: bold;
+
+}
+.rewiew-comment {
+    margin-left: 20px;
+}

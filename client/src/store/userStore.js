@@ -85,6 +85,8 @@ export default class UserStore {
             const response  = await AuthService.logout();
             localStorage.removeItem('token');
             this.setAuth(false);
+            this.setAdmin(false);
+            this.setInstructor(false)
             this.setUser({})
         } catch (error) {
             console.log(error)

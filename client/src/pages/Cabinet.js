@@ -40,7 +40,8 @@ const Cabinet = observer(() => {
                 <td>Название</td>
                 <td>Учебное задедение</td>
                 <td>Категория</td>
-                <td colspan="2"></td>
+
+                <td colspan="3"></td>
                 
             </tr>
             {
@@ -51,6 +52,9 @@ const Cabinet = observer(() => {
                         <td>{item.univer_name}</td>
                         
                         <td>{item.category_name}</td>
+                        <td>
+                        <a onClick={() => history("/course-rewiew" + "/" + item.id)} className="course-item_button">Отзывы</a>
+                        </td>
                         <td onClick={() => history("/edit" + "/" + item.id)}><FaEdit/></td>
                         <td><span onClick={() => {setModalActive(true); setCourse(item)}}><MdDeleteOutline/></span></td>
                     </tr>

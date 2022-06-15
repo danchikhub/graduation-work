@@ -61,4 +61,7 @@ router.post('/level-delete', levelController.delete)
 
 router.get('/users', userController.getAll);
 router.post('/user-delete', userController.delete)
+
+router.get('/rewiew-getcourse', courseController.getRewiew);
+router.get('/rewiew-getlecture', lectureController.getRewiew);
 module.exports = router;

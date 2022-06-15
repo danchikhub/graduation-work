@@ -106,5 +106,14 @@ class LectureController {
             next(error)
         }
     }
+    async getRewiew(req, res) {
+        try {
+            const {lecture_id} = req.query;
+            const rewiews = await LectureService.getRewiew(lecture_id)
+            return res.json(rewiews)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 module.exports = new LectureController();

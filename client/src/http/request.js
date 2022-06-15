@@ -114,3 +114,17 @@ export const deleteUser = async (user_id) => {
     const {data} = await $api.post('/user-delete', {user_id})
     return data
 }
+
+export const fetchCourseRewiew = async ( course_id) => {
+    const {data} = await $api.get('/rewiew-getcourse', {params: {
+        course_id
+    }})
+    return data
+}
+
+export const fetchLectureRewiew = async ( lecture_id) => {
+    const {data} = await $api.get('/rewiew-getlecture', {params: {
+        lecture_id
+    }})
+    return data
+}

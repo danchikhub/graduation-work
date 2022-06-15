@@ -133,5 +133,17 @@ class LectureService {
         })
         return {ratingRewiew, commentRewiew}
     }
+    async getRewiew(lecture_id) {
+        const rewiews = await sequelize.query(`
+            select lecture_comments.id, lecture_comments.comment, users.first_name 
+            from lecture_comments
+            left join users on lecture_comments.user_id = users.id
+            where lecture_comments.lecture_id = ${lecture_id}
+        `,{
+            type: QueryTypes.SELECT
+          })
+          console.log(rewiews)
+        return rewiews
+    }
 }
 module.exports = new LectureService()
