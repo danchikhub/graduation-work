@@ -4,7 +4,6 @@ import { Context } from '../../index';
 import './profileMenu.css';
 const ProfileMenu = ({active, setActive}) => {
     const {userStore} = useContext(Context);
-    console.log(userStore.isInstructor)
     return (
         <div className={active ? "profile-menu active" : "profile-menu"}>
             <ul className="profile-menu_list">

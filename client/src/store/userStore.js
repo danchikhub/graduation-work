@@ -48,12 +48,13 @@ export default class UserStore {
     async registration(first_name, last_name, email, password) {
         try {
             const response = await AuthService.registration(first_name, last_name, email, password);
-            console.log(response);
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
+            console.log(response)
+            return response
         } catch (error) {
-            console.log(error)
+            return error.response
         }
     }
     async instructorRegistration(contactEmaill, telephone, biography, university, userId) {

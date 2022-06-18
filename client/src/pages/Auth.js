@@ -1,6 +1,5 @@
 import React, {useState, useContext} from 'react';
 import '../resources/styles/auth.css';
-import {observer} from "mobx-react-lite";
 import { Context } from "../index";
 import {useNavigate} from "react-router-dom";
 import { Link } from 'react-router-dom';

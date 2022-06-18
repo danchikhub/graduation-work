@@ -65,5 +65,6 @@
 
 .auth-error {
     display: block;
+    color: red;
     margin: 20px;
 }

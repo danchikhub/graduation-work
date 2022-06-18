@@ -9,7 +9,7 @@ import ProfileMenu from '../profile/ProfileMenu';
 const Header = () => {
     const { userStore } = useContext(Context);
     const [modalActive, setModalActive] = useState(false);
-    console.log(userStore)
+    
     return (
         <div className='header'>
             <div className='container'>
