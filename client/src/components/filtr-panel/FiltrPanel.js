@@ -9,12 +9,14 @@ const FiltrPanel = () => {
     const [categories, setCategories] = useState([]);
     const [univers, setUnivers] = useState([]);
     const [category, setCategory] = useState(0);
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState('');
+    const [courseCount, setCourseCount] = useState(0)
     const {courseStore} = useContext(Context)
     useEffect(() => {
         fetchCategories().then(data => setCategories(data))
         fetchUnivers().then(data => setUnivers(data))
         fetchUnivers().then(data => setUnivers(data))
+        setCourseCount(courseStore.courses.length)
     }, [])
     const filtCourse = (categoryId, univerId) => {
         fetchCourses(categoryId, univerId).then(data => courseStore.setCourses(data))
@@ -29,11 +31,12 @@ const FiltrPanel = () => {
         courseStore.setSelectUniver(univer_id)
         filtCourse(courseStore.selectCategory, courseStore.selectUniver)
     }
+    console.log(courseStore.courses.length)
     return (
         <div className="filter-wrapper">
             <div className="container">
             <div className="filter-title">
-                Всего курсов:
+                Всего курсов: {courseCount}
             </div>
             <div className="filter-inner">
                 <SelectComp styleClass={'filter-select'} title={'Выберите категорию'} property={'category_name'} id="category" options={categories} onChange={onCategorySelectChange} />

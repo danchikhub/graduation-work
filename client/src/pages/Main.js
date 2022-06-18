@@ -69,7 +69,7 @@ const Main = () => {
               <div className="welcome-item">
                 <div className="welcome-item__title">Лекции</div>
                 <div className="welcome-item__desc">Лекции от ведущих учебных заведений Кыргызской Республики</div>
-                <Link className="welcome-item__link" to='/courses'>Перейти</Link>
+                <Link className="welcome-item__link" to='/lectures'>Перейти</Link>
               </div>
             </div>
           </div>

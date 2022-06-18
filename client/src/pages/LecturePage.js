@@ -48,7 +48,7 @@ const LecturePage = () => {
                             </div>
                         </div>
                         <div className="lecture-help">
-                            <div className="course-page__desc-title">О курсе</div>
+                            <div className="course-page__desc-title">О лекции</div>
                             <p className="course-page__desc">
                                 {lecture.lecture_desc}
                             </p>

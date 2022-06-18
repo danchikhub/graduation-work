@@ -85,7 +85,7 @@ const LectureView = () => {
 
                         <td>№</td>
                         <td>Название</td>
-                        <td>Учебное задедение</td>
+                        <td>Учебное заведение</td>
                         <td>Категория</td>
                         <td colspan="3"></td>
 
@@ -114,10 +114,15 @@ const LectureView = () => {
                 
             </div>
             <Modal active={modalActive} setActive={setModalActive}>
+                <label className='course-label' htmlFor="">Выберите картинку лекции:</label>
                 <input onChange={selectImg} type="file" />
-                <input onChange={(e) => setLectureTitle(e.target.value)} type="text" />
-                <textarea onChange={(e) => setLectureDesc(e.target.value)} name="" id="" cols="30" rows="10"></textarea>
+                <label className='course-label' htmlFor="">Заголовок лекции:</label>
+                <input placeholder='Заголовок лекции' onChange={(e) => setLectureTitle(e.target.value)} type="text" />
+                <label className='course-label' htmlFor="">Описание лекции:</label>
+                <textarea placeholder='Описание лекции' onChange={(e) => setLectureDesc(e.target.value)} name="" id="" cols="30" rows="10"></textarea>
+                <label className='course-label' htmlFor="">Выбрать категорию:</label>
                 <SelectComp title={'Выберите категорию'} property={'category_name'} id="category" options={categories} onChange={onCategorySelectChange} />
+                <label className='course-label' htmlFor="">Выбрать файл:</label>
                 <input onChange={selectFile} type="file" />
                 <div className='lecture-buttons'>
                     <button onClick={() => { addLecture(); setModalActive(false) }}>Создать</button>

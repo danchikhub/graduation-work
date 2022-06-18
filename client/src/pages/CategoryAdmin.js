@@ -73,7 +73,9 @@ const CategoryAdmin = () => {
                 </div>
             </div>
             <Modal active={modalActive} setActive={setModalActive}>
-                <input onChange={(e) => setCategory(e.target.value)} type="text" />
+               <label className='course-label' htmlFor="">Название категории:</label>
+               
+                <input placeholder="Название категории " onChange={(e) => setCategory(e.target.value)} type="text" />
                 <div className='lecture-buttons'>
                     <button onClick={() => {addCategory(category); setModalActive(false)}}>Создать</button>
                     <button onClick={() => setModalActive(false)}>Отмена</button>
@@ -81,8 +83,8 @@ const CategoryAdmin = () => {
             </Modal>
             
             <Modal active={modalUpdateActive} setActive={setModalUpdateActive}>
-               
-               <input name='category_name' value={selectCategory.category_name} onChange={handleInputChange} type="text" />
+               <label className='course-label' htmlFor="">Название категории:</label>
+               <input placeholder="Название категории " name='category_name' value={selectCategory.category_name} onChange={handleInputChange} type="text" />
                <div className='lecture-buttons'>
                     <button onClick={() => {categoryUpdate(selectCategory.category_name, selectCategory.id); setModalUpdateActive(false)}}>Обновить</button>
                     <button onClick={() => setModalActive(false)}>Отмена</button>

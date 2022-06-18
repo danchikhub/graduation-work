@@ -91,7 +91,9 @@ const UniversityAdmin = () => {
                 </div>
             </div>
             <Modal active={modalActive} setActive={setModalActive}>
-                <input onChange={ (e) => setUniver(e.target.value)} className="input-help" type="text" />
+                <label className='course-label' htmlFor="">Название учебного заведения:</label>
+                <input placeholder="Название учебного заведения" onChange={ (e) => setUniver(e.target.value)} className="input-help" type="text" />
+                <label className='course-label' htmlFor="">Выбрать уровень образования:</label>
                 <SelectComp styleClass={'filter-select'} title={'Выберите уровень'} property={'level_name'} id="level" options={levels} onChange={onLevelsSelectChange} />
                 <div className='lecture-buttons'>
                     <button onClick={() => {addUniver(univer, levelId); setModalActive(false)}}>Создать</button>
@@ -100,7 +102,7 @@ const UniversityAdmin = () => {
             </Modal>
             
             <Modal active={modalUpdateActive} setActive={setModalUpdateActive}>
-               
+                <label className='course-label' htmlFor="">Название учебного заведения:</label>
                <input name='univer_name' value={selectUniver.univer_name} onChange={handleInputChange} type="text" />
                <div className='lecture-buttons'>
                     <button onClick={() => {univerUpdate(selectUniver.univer_name, selectUniver.id); setModalUpdateActive(false)}}>Обновить</button>

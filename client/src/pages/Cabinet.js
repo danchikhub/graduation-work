@@ -31,19 +31,17 @@ const Cabinet = observer(() => {
             </div>
             
             <table id="region" class="region">
-            <tr>
-                <th colspan="11"> Курсы</th>
-            </tr>
-            <tr>
-                
-                <td>№</td>
-                <td>Название</td>
-                <td>Учебное задедение</td>
-                <td>Категория</td>
-
-                <td colspan="3"></td>
-                
-            </tr>
+                <tr>
+                    <th colspan="11">Курсы</th>
+                </tr>
+                <tr>
+                    <td>№</td>
+                    <td>Название</td>
+                    <td>Учебное заведение</td>
+                    <td>Категория</td>
+                    <td colspan="3"></td>
+                    
+                </tr>
             {
                 courses.map((item, index) => {
                     return <tr key={item.id}>

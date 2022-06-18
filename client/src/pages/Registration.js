@@ -6,7 +6,7 @@ import '../resources/styles/registration.css';
 import {observer} from "mobx-react-lite";
 import { Context } from "../index";
 import { useInRouterContext } from "react-router-dom";
-
+import { Link } from 'react-router-dom';
 const Registration = () => {
     const [first_name, setFirstName] = useState('');
     const [last_name, setLastName] = useState('');
@@ -19,18 +19,18 @@ const Registration = () => {
                 <h2>Зарегистрироваться</h2>
                 <input
                  onChange={e => setFirstName(e.target.value)}
-                 type="text" placeholder="First Name" name="" id="" />
+                 type="text" placeholder="Фамилия" name="" id="" />
                 <input 
                 onChange={e => setLastName(e.target.value)}
-                type="text" placeholder="Last Name" name="" id="" />
+                type="text" placeholder="Имя" name="" id="" />
                 <input
                 onChange={e => setEmail(e.target.value)}
-                type='text' placeholder="Email" />
+                type='text' placeholder="Почта" />
                 <input 
                 onChange={e => setPassword(e.target.value)}
-                type='password' placeholder="Password" />
-                <button onClick={() => { userStore.registration(first_name, last_name, email, password)}}>Войти</button>
-                <span>Уже есть аккаунт? |  <a>Войти</a></span>
+                type='password' placeholder="Пароль" />
+                <button onClick={() => { userStore.registration(first_name, last_name, email, password)}}>Зарегистрироваться</button>
+                <span>Уже есть аккаунт? |  <Link className='get-reg' to="/login">Войти</Link></span>
             </div>
         </div>
     )

@@ -34,6 +34,7 @@ a {
     margin-left: 20px;
 }
 .filter-search input {
+    height: 40px;
     border-radius: 5px;
     border: 2px solid #64597A;
     padding-left:8px ;
@@ -46,6 +47,7 @@ a {
     color: #fff;
     padding: 3px 20px;
     margin-left: 3px;
+    height: 40px;
 
 }
 .filter-search button:hover {

@@ -43,7 +43,7 @@ const LevelAdmin = () => {
                 <div className='lecture-block__create'>
                     <h2>Уровень</h2>
                     <div>
-                        <button onClick={() => {setModalActive(true)}} className='lecture-block__button'>Добавить категорию</button>
+                        <button onClick={() => {setModalActive(true)}} className='lecture-block__button'>Добавить уровень</button>
                     </div>
                 </div>
                 <div className="lecture-block__list">
@@ -74,7 +74,8 @@ const LevelAdmin = () => {
                 </div>
             </div>
             <Modal active={modalActive} setActive={setModalActive}>
-                <input onChange={(e) => setLevel(e.target.value)} type="text" />
+                <label className='course-label' htmlFor="">Название уровня образования:</label>
+                <input placeholder="Название уровня образования" onChange={(e) => setLevel(e.target.value)} type="text" />
                 <div className='lecture-buttons'>
                     <button onClick={() => {addLevel(level); setModalActive(false)}}>Создать</button>
                     <button onClick={() => setModalActive(false)}>Отмена</button>
@@ -82,8 +83,8 @@ const LevelAdmin = () => {
             </Modal>
             
             <Modal active={modalUpdateActive} setActive={setModalUpdateActive}>
-               
-               <input name='level_name' value={selectLevel.level_name} onChange={handleInputChange} type="text" />
+                <label className='course-label' htmlFor="">Название уровня образования:</label>
+               <input name='level_name' placeholder="Название уровня образования" value={selectLevel.level_name} onChange={handleInputChange} type="text" />
                <div className='lecture-buttons'>
                     <button onClick={() => {levelUpdate(selectLevel.level_name, selectLevel.id); setModalUpdateActive(false)}}>Обновить</button>
                     <button onClick={() => setModalActive(false)}>Отмена</button>

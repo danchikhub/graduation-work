@@ -36,7 +36,19 @@
 }
 
 .lectureView-wrapper input:not(.lectureView-wrapper input:first-child) {
-    margin: 20px 0 ;
+    margin: 0 0 20px 0 ;
+}
+.lectureView-wrapper input::placeholder {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #555;
+}
+.lectureView-wrapper textarea, select {
+    margin: 0 0 20px 0 ;
+}
+.lectureView-wrapper textarea::placeholder {
+    font-size: 14px;
+    color: #555;
 }
 .lecture-create__button {
         font-family: 'Nunito', sans-serif;

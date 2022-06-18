@@ -75,21 +75,28 @@ const Edit = () => {
                 <Aside />
             </div>
             <div className="course-create">
+                <h1 className='course-create-title'>Обновление курса</h1>
                 <div className="course-create_wrapper">
                     <div className="edit-wrapper">
+                        <label className='course-label' htmlFor="">Картинка курса:</label>
                         <img src={process.env.REACT_APP_API_URL + course.course_img} alt="" />
+                        <label className='course-label' htmlFor="">Выбрать новую картинку курса:</label>
                         <input onChange={selectFile} className='course-create_file' type="file" />
+                        <label className='course-label' htmlFor="">Заголовок курса:</label>
                         <input  placeholder={course.course_title} onChange={(e) => setCourseTitle(e.target.value)} type="text" />
                         <button onClick={() => { addCourse(); history('/cabinet')  }}  className='course-create_button'>Обновить курс</button>
                         
                     </div>
                     <div>
+                        <label className='course-label' htmlFor="">Описание курса:</label>
                         <textarea onChange={(e) => setCourseDesc(e.target.value)} cols="30" rows="10" placeholder={course.course_desc}></textarea>
                     </div>
                 </div>
                 <div className="theme-edit">
                 <table id="region" class="region">
-           
+                <tr>
+                        <th colspan="11">Темы курса</th>
+                    </tr>
                     <tr>
                         
                         <td>№</td>

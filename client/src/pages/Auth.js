@@ -2,7 +2,8 @@ import React, {useState, useContext} from 'react';
 import '../resources/styles/auth.css';
 import {observer} from "mobx-react-lite";
 import { Context } from "../index";
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
+import { Link } from 'react-router-dom';
 const Auth = () => {
     const history = useNavigate()
     const [email, setEmail] = useState('');
@@ -26,14 +27,14 @@ const Auth = () => {
                 <h2>Вход в систему</h2>
                 <input
                 onChange={e => setEmail(e.target.value)}
-                type='text' placeholder="Email" />
+                type='text' placeholder="Почта" />
                 <input
                 onChange={e => setPassword(e.target.value)}
-                 type='password' placeholder="Password" />
-                 {authError ? <span>{errorMessage}</span> : ''}
+                 type='password' placeholder="Пароль" />
+                 {authError ? <span className='auth-error'>{errorMessage}</span> : ''}
                 
                 <button onClick={() => { login() }}>Войти</button>
-                <span>Ещё нет аккаунта? |  <a>Зарегистрироваться</a></span>
+                <span>Ещё нет аккаунта? |  <Link className='get-reg' to="/registration">Зарегистрироваться</Link></span>
             </div>
         </div>
        

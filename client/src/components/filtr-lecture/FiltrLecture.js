@@ -9,11 +9,13 @@ const FiltrLecture = () => {
     const {lectureStore} = useContext(Context)
     const [categories, setCategories] = useState([]);
     const [univers, setUnivers] = useState([]);
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState('');
+    const [lectureCount, setLectureCount] = useState(0)
     useEffect(() => {
         fetchCategories().then(data => setCategories(data))
         fetchUnivers().then(data => setUnivers(data))
         fetchUnivers().then(data => setUnivers(data))
+        setLectureCount(lectureStore.lectures.length)
     }, [])
     const filtLecture = (categoryId, univerId) => {
         fetchLectures(categoryId, univerId).then(data => lectureStore.setLectures(data))
@@ -32,7 +34,7 @@ const FiltrLecture = () => {
         <div className="filter-wrapper">
             <div className="container">
             <div className="filter-title">
-                Всего лекций:
+                Всего лекций: {lectureCount}
             </div>
             <div className="filter-inner">
                 <SelectComp styleClass={'filter-select'} title={'Выберите категорию'} property={'category_name'} id="category" options={categories} onChange={onCategorySelectChange} />

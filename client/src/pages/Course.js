@@ -72,31 +72,41 @@ const Course = () => {
             </div>
 
             <div className="course-create">
+                <h1 className='course-create-title'>Добавление нового курса</h1>
                 <div className="course-create_wrapper">
-                    
+
                     <div>
+                        <label className='course-label' htmlFor="">Выберите картинку курса:</label>
                         <input onChange={selectFile} className='course-create_file' type="file" name="" id="" />
-                        <input onChange={(e) => setCourseTitle(e.target.value)} placeholder='Название курса' type="text" />
+                        <label className='course-label' htmlFor="">Заголовок курса:</label>
+                        <input onChange={(e) => setCourseTitle(e.target.value)} placeholder='Заголовок курса' type="text" />
+                        <label className='course-label' htmlFor="">Категория курса:</label>
                         <SelectComp title={'Выберите категорию'} property={'category_name'} id="category" options={categories} onChange={onCategorySelectChange} />
                         <button onClick={() => { addCourse(); setActive(true) }} className='course-create_button'>Создать курс</button>
                         <button onClick={() => setThemeActive(true)} className={active ? "theme-create_button active" : "theme-create_button"}>Добавить темы</button>
                     </div>
                     <div>
+                        <label className='course-label' htmlFor="">Описание курса:</label>
                         <textarea onChange={(e) => setCourseDesc(e.target.value)} placeholder="Описание курса" name="" id="" cols="30" rows="10"></textarea>
-                        
+
                     </div>
 
                 </div>
-               
+
                 {
                     <div className={themeActive ? 'theme-wrapper active' : 'theme-wrapper'}>
                         <div >
-                            <input className='theme-wrapper__input' type="text" onChange={(e) => setThemeTitle(e.target.value)} name="" id="" />
+                            <label className='course-label' htmlFor="">Заголовок темы:</label>
+                            <input className='theme-wrapper__input' placeholder='Заголовок темы' type="text" onChange={(e) => setThemeTitle(e.target.value)} name="" id="" />
+                            <label className='course-label' htmlFor="">Выберите файл темы:</label>
                             <input className='theme-wrapper__input' type="file" onChange={selectThemeFile} />
-                            <button onClick={() => addTheme()}>Добавить</button>
+                            <button onClick={() => addTheme()}>Добавить тему</button>
+                        </div>
+                        <div>
+                            <label className='course-label' htmlFor="">Описание темы:</label>
+                            <textarea type="text" placeholder='Описание темы' onChange={(e) => setThemeDesc(e.target.value)} name="" id="" />
                         </div>
 
-                        <textarea type="text" onChange={(e) => setThemeDesc(e.target.value)} name="" id="" />
 
 
                     </div>

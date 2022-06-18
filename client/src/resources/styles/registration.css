@@ -62,3 +62,12 @@
     color:aliceblue;
     opacity: 0.8; /* Firefox */
 }
+
+.get-reg {
+    color: #E7E7E7;
+    font-size: 14px;
+}
+.get-reg:hover {
+    color: #fff;
+    cursor: pointer;
+}
