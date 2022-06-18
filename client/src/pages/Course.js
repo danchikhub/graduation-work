@@ -1,16 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Aside from '../components/aside/Aside';
 import { fetchCategories } from '../http/request';
 import '../resources/styles/course-create.css'
 import '../components/SelectComp';
 import SelectComp from '../components/SelectComp';
-// import CourseService from '../services/CourseService';
 import { createCourse, createTheme } from '../services/CourseService';
-import { Button, Dropdown, Form, Row, Col } from "react-bootstrap";
 import { Context } from "../index";
-import Tabs from 'react-bootstrap/Tabs'
-import Tab from 'react-bootstrap/Tab';
+import { useForm } from "react-hook-form";
+
 
 const Course = () => {
     const [categories, setCategories] = useState([]);
@@ -26,7 +23,8 @@ const Course = () => {
     const [themeTitle, setThemeTitle] = useState('');
     const [themeDesc, setThemeDesc] = useState('');
     const [themeFile, setThemeFile] = useState(null);
-    const [course, setCourse] = useState({})
+    const [course, setCourse] = useState({});
+    const { register, formState: { errors }, handleSubmit } = useForm();
     useEffect(() => {
         fetchCategories().then(data => setCategories(data))
     }, [])
@@ -77,12 +75,20 @@ const Course = () => {
 
                     <div>
                         <label className='course-label' htmlFor="">Выберите картинку курса:</label>
-                        <input onChange={selectFile} className='course-create_file' type="file" name="" id="" />
+                        <input 
+                             {
+                                ...register("courseImg", {
+                                    required: true,
+                                })}
+                            onChange={selectFile} 
+                            className='course-create_file' 
+                            type="file" 
+                        />
                         <label className='course-label' htmlFor="">Заголовок курса:</label>
                         <input onChange={(e) => setCourseTitle(e.target.value)} placeholder='Заголовок курса' type="text" />
                         <label className='course-label' htmlFor="">Категория курса:</label>
                         <SelectComp title={'Выберите категорию'} property={'category_name'} id="category" options={categories} onChange={onCategorySelectChange} />
-                        <button onClick={() => { addCourse(); setActive(true) }} className='course-create_button'>Создать курс</button>
+                        <button onClick={handleSubmit(() => { addCourse(); setActive(true) })} className='course-create_button'>Создать курс</button>
                         <button onClick={() => setThemeActive(true)} className={active ? "theme-create_button active" : "theme-create_button"}>Добавить темы</button>
                     </div>
                     <div>
