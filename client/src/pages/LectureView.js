@@ -17,11 +17,12 @@ const LectureView = () => {
     const fileRef = useRef(null)
     const history = useNavigate()
     const { userStore } = useContext(Context);
+    const [lecture, setLecture] = useState({})
     useEffect(() => {
         fetchCategories().then(data => setCategories(data))
         fetchLecturesPanel(userStore.user.id).then(data => setLectures(data))
 
-    }, [userStore.user.id])
+    }, [userStore.user.id, lecture])
     const lectureDelete = (id) => {
         deleteLecture(id)
         fetchLecturesPanel(userStore.user.id).then(data => setLectures(data))
@@ -36,7 +37,7 @@ const LectureView = () => {
     const [modalUpdateActive, setModalUpdateActive] = useState(false);
     const [modalDeleteActive, setModalDeleteActive] = useState(false);
     const [deleteId, setDeleteId] = useState(null)
-    const [lecture, setLecture] = useState({})
+    
 
     const onCategorySelectChange = e => {
         const category_id = e.target.options[e.target.selectedIndex].value;
@@ -159,7 +160,7 @@ const LectureView = () => {
                         required: true
                     })
                     }
-                    placeholder='Описание лекции' onChange={(e) => setLectureDesc(e.target.value)} name="" id="" cols="30" rows="5"></textarea>
+                    placeholder='Описание лекции' onChange={(e) => setLectureDesc(e.target.value)} cols="30" rows="5"></textarea>
                 {errors?.themeDesc?.type === "required" && <p className='validate file'>Поле обязательно к заполнению!</p>}
                 <label className='course-label' htmlFor="">Выбрать категорию:</label>
                 <SelectComp title={'Выберите категорию'} property={'category_name'} id="category" options={categories} onChange={onCategorySelectChange} />
@@ -177,7 +178,10 @@ const LectureView = () => {
                     onChange={selectFile} type="file" />
                     {errors.file && <p className='validate file'>{errors.file.message}</p>}
                 <div className='lecture-buttons'>
-                    <button onClick={handleSubmit(() => { addLecture(); setModalActive(false) })}>Создать</button>
+                    <button onClick={handleSubmit(() => { 
+                        addLecture();
+                        setModalActive(false);
+                    })}>Создать</button>
                     <button onClick={() => setModalActive(false)}>Отмена</button>
                 </div>
             </Modal>

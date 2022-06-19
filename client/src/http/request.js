@@ -14,7 +14,12 @@ export const fetchCategories = async () => {
     const {data} = await $api.get('/categories');
     return data
 }
-
+export const fetchUniversForFilter = async (level_id) => {
+    const {data} = await $api.get('/univers-for-filter', {params: {
+        level_id
+    }})
+    return data
+}
 export const fetchCourses = async (categoryId, univerId) => {
     const {data} = await $api.get('/courses', {params: {
         categoryId, univerId

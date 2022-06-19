@@ -98,27 +98,36 @@ const CoursePage = () => {
 
             </div>
             <Modal active={modalActive} setActive={setModalActive}>
-                <h3 className="course-rating__title">Оставить отзыв</h3>
+                {
+                    userStore.isAuth ? 
                 <div>
-                    {stars.map((_, index) => {
-                        return (
-                            <FaStar
-                                key={index}
-                                size={24}
-                                onClick={() => handleClick(index + 1)}
-                                onMouseOver={() => handleMouseOver(index + 1)}
-                                onMouseLeave={handleMouseLeave}
-                                color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-                                style={{
-                                    marginRight: 10,
-                                    cursor: "pointer"
-                                }}
-                            />
-                        )
-                    })}
+                    <h3 className="course-rating__title">Оставить отзыв</h3>
+                    <div>
+                        {stars.map((_, index) => {
+                            return (
+                                <FaStar
+                                    key={index}
+                                    size={24}
+                                    onClick={() => handleClick(index + 1)}
+                                    onMouseOver={() => handleMouseOver(index + 1)}
+                                    onMouseLeave={handleMouseLeave}
+                                    color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
+                                    style={{
+                                        marginRight: 10,
+                                        cursor: "pointer"
+                                    }}
+                                />
+                            )
+                        })}
+                    </div>
+                    <textarea onChange={(e) => setComment(e.target.value)} className="course-comment" cols="30" rows="10"></textarea>
+                    <button onClick={() => { setRewiew(userStore.user.id, id, currentValue, comment); setModalActive(false)  }} className="theme-rating__button">Отправить</button>
                 </div>
-                <textarea onChange={(e) => setComment(e.target.value)} className="course-comment" name="" id="" cols="30" rows="10"></textarea>
-                <button onClick={() => { setRewiew(userStore.user.id, id, currentValue, comment); setModalActive(false)  }} className="theme-rating__button">Отправить</button>
+            :
+            <div>
+                <h3 className="course-rating__title">Не авторизованным пользователям нельзя оставить отзыв!</h3>
+            </div>
+            }
             </Modal>
         </div>
 

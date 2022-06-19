@@ -10,6 +10,11 @@ class UniversityController {
         const univers_rating = await UniverService.getUniverRating();
         return res.json(univers_rating)
     }
+    async getForFilter(req, res) {
+        const {level_id} = req.query;
+        const univers = await UniverService.getForFilter(level_id)
+        return res.json(univers)
+    }
     async getUniversAdmin(req, res) {
         const univers = await UniverService.getUniversAdmin();
         return res.json(univers)

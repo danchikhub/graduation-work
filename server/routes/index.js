@@ -33,6 +33,7 @@ router.get('/univers', UniversityController.getAll);
 router.get('/categories', categoryController.getAll);
 router.post('/instructor-registration', instructorController.instructorRegistration);
 router.get('/univers-rating', UniversityController.getUniverRating);
+router.get('/univers-for-filter', UniversityController.getForFilter);
 router.post('/lecture-create', lectureController.createLecture);
 router.get('/lecture-panel', lectureController.getAllForPanel);
 router.post('/lecture-update', lectureController.updateLecture);

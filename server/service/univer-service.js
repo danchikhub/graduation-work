@@ -39,13 +39,21 @@ class UniverService {
         return univer
     }
     async update(univer_name, univer_id) {
-        console.log(univer_name)
+        
         const univer = await UniversityModel.update({
             univer_name: univer_name
         }, {
             where: {id: univer_id}
         })
         return univer
+    }
+    async getForFilter(level_id) {
+        const univers = await UniversityModel.findAll({
+            where: {
+                univer_level: level_id
+            }
+        })
+        return univers
     }
 }
 module.exports = new UniverService()
