@@ -19,3 +19,12 @@ export const setRewiew = async ( user_id, lecture_id, rating, comment) => {
   const {data} = await $api.post('lecture-rewiew', { lecture_id, user_id, rating, comment})
   return data
 }
+
+export const updateLecture = async (lecture) => {
+  const {data} = await $api.post('/lecture-update', lecture, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  })
+  return data
+}

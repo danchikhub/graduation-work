@@ -22,13 +22,12 @@ class LectureService {
 
         return lecture
     }
-    async updateLecture(lecture_img,lecture_title, lecture_desc, lecture_file, category_id, lecture_id) {
+    async updateLecture(lecture_img, lecture_title, lecture_desc, lecture_file, lecture_id) {
         const lecture = await LectureModel.update({
             lecture_img: lecture_img,
             lecture_title: lecture_title,
             lecture_desc: lecture_desc,
             lecture_file: lecture_file,
-            category_id: category_id,
         }, {
             where: {id: lecture_id}
         })

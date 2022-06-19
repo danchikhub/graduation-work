@@ -25,14 +25,22 @@ class LectureController {
     }
     async updateLecture(req, res, next) {
         try {
-            const { lecture_title, lecture_desc, category_id, lecture_id } = req.body;
-            const {imgFile, lectureFile} = req.files;
-            let lecture_img = uuid.v4() + '.jpg';
-            let lecture_file = uuid.v4() + '.pdf';
-            imgFile.mv(path.resolve(__dirname, '..', 'static', lecture_img))
-            lectureFile.mv(path.resolve(__dirname, '..', 'static', lecture_img))
-            const lecture = await LectureService.updateLecture(lecture_img,lecture_title, lecture_desc, lecture_file, category_id, lecture_id);
-            return res.json(lecture)
+            console.log(req.body)
+            if(req.files === null) {
+                const {lectureFile, imgFile, lecture_title, lecture_desc, lecture_id} = req.body
+                const lecture = await LectureService.updateLecture(imgFile, lecture_title, lecture_desc, lectureFile, lecture_id)
+                return res.json(lecture)
+            }else {
+                 const { lecture_title, lecture_desc, lecture_id } = req.body;
+                const {imgFile, lectureFile} = req.files;
+                let lecture_img = uuid.v4() + '.jpg';
+                let lecture_file = uuid.v4() + '.pdf';
+                imgFile.mv(path.resolve(__dirname, '..', 'static', lecture_img))
+                lectureFile.mv(path.resolve(__dirname, '..', 'static', lecture_img))
+                const lecture = await LectureService.updateLecture(lecture_img,lecture_title, lecture_desc, lecture_file, lecture_id);
+                return res.json(lecture)
+            }
+           
         } catch (error) {
             next(error)
         }
