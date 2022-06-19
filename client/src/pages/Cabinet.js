@@ -21,6 +21,7 @@ const Cabinet = observer(() => {
     }, [userStore.user.id])
     
     const courseDelete = () => {
+        deleteCourse(course.id)
         fetchCoursesPanel(userStore.user.id).then(data => setCourses(data))
         setModalActive(false)
     }

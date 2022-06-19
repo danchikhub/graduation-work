@@ -26,7 +26,7 @@ class CourseController {
             
              let fileName = uuid.v4() + '.jpg';
              imgFile.mv(path.resolve(__dirname, '..', 'static', fileName))
-            const course = await  CourseService.updateCreate(fileName,course_title, course_desc, id)
+            const course = await  CourseService.updateCourse(fileName,course_title, course_desc, id)
             
               return res.json(course)
         } catch (error) {

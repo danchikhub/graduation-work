@@ -75,3 +75,9 @@
 .validate {
     color: red;
 }
+.validate.file {
+    margin-top: -20px;
+}
+.validate.file.textarea {
+    margin-top: 10px;
+}

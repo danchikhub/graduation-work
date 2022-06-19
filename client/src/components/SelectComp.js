@@ -1,10 +1,17 @@
 import React from "react";
-
-const SelectComp = ({id, options,title, onChange, styleClass, property}) => {
+import { useForm } from "react-hook-form";
+const SelectComp =  ({name, id, options,title, onChange, styleClass, property}) => {
     
     return (
-        <select className={styleClass} id={id} onChange={onChange}>
-            <option value={0} selected>{title}</option>
+        
+             <select 
+                
+                className={styleClass}
+                id={id} 
+                onChange={onChange}
+                
+            >
+            <option value={0}>{title}</option>
             {
                 
                 options.map((option, index) => 
@@ -12,6 +19,10 @@ const SelectComp = ({id, options,title, onChange, styleClass, property}) => {
                 )
             }
         </select>
+       
+        
+       
+        
     )
 }
 

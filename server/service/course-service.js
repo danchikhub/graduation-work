@@ -23,7 +23,7 @@ class CourseService {
         
     }
 
-    async updateCreate(fileName, course_title, course_desc,id) {
+    async updateCourse(fileName, course_title, course_desc,id) {
 
         const course = await CourseModel.update({
             course_img: fileName,
