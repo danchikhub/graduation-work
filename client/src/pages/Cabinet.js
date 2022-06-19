@@ -30,8 +30,8 @@ const Cabinet = observer(() => {
             <div className="aside-inner">
                 <Aside></Aside>
             </div>
-            
-            <table id="region" class="region">
+            <div className="lecture-block">
+            <table id="region" class="region lecture-block">
                 <tr>
                     <th colspan="11">Курсы</th>
                 </tr>
@@ -62,6 +62,7 @@ const Cabinet = observer(() => {
            
            
         </table>
+        </div>
         <Modal active={modalActive} setActive={setModalActive}>
         <h2 className="delete-title">Вы уверены?</h2>
                 <div className="theme-buttons delete"><button onClick={() => courseDelete()} >Удалить</button><button onClick={() => setModalActive(false) }>Отмена</button></div>

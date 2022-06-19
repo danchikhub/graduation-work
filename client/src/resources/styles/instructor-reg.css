@@ -37,7 +37,7 @@ textarea {
     border-radius: 4px;
     box-shadow: 0 8px 6px -6px #555;
     color: #555;
-    margin: 16px 0;
+    margin:0 0 16px 0;
 }
 
 .left-block input::placeholder {
@@ -61,7 +61,7 @@ textarea {
     color: #555;
     font-family: 'Nunito', sans-serif;
     font-size: 14px;
-    margin: 16px 0;
+    margin:0 0 16px 0;
 }
 
 .select-instructor:required:invalid {

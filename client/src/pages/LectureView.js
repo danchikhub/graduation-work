@@ -94,7 +94,7 @@ const LectureView = () => {
                 <div className="lecture-block__list">
                     <table id="region" class="region lecture-block">
                         <tr>
-                            <th colspan="11"> Лекции</th>
+                            <th colspan="11">Лекции</th>
                         </tr>
                         <tr>
 
