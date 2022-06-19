@@ -19,6 +19,10 @@
     color: #555;
     margin-bottom: 20px;
 }
+.theme-file_title {
+    margin: 0 auto;
+    width: 80%;
+}
 .theme-input__title::placeholder, .theme-input__desc::placeholder {
     color: #555;
 }

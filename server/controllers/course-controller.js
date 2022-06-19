@@ -20,15 +20,21 @@ class CourseController {
 
     async updateCourse(req, res, next) {
         try {
-            
-            const {course_title, course_desc, id} = req.body;
+            if(req.files === null) {
+                const {course_title, course_desc, id, imgFile} = req.body;
+                const course = await  CourseService.updateCourse(imgFile,course_title, course_desc, id)
+                return res.json(course)
+            }else {
+                const {course_title, course_desc, id} = req.body;
              const { imgFile } = req.files;
-            
+            console.log(req.files)
              let fileName = uuid.v4() + '.jpg';
              imgFile.mv(path.resolve(__dirname, '..', 'static', fileName))
             const course = await  CourseService.updateCourse(fileName,course_title, course_desc, id)
             
               return res.json(course)
+            }
+            
         } catch (error) {
             next(error)
         }

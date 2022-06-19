@@ -28,17 +28,25 @@ class ThemeController {
     }
     async updateTheme(req, res, next) {
         try {
+
+            console.log(req.body)
+            if(req.files === null) {
+                const {theme_title, theme_desc, theme_id, theme_file} = req.body;
+                const theme = await  ThemeService.updateTheme(theme_title, theme_desc,theme_file, theme_id)
+                return res.json(theme)
+            }else {
+                const {theme_id, theme_title, theme_desc} = req.body;
             
-             const {theme_id, theme_title, theme_desc} = req.body;
             
+                const { theme_file } = req.files;
+                
+                 let fileName = uuid.v4() + '.pdf';
+                 theme_file.mv(path.resolve(__dirname, '..', 'static', fileName))
+                 const theme = await  ThemeService.updateTheme(theme_title, theme_desc, fileName, theme_id)
+                
+               return res.json(theme)
+            }
             
-            const { theme_file } = req.files;
-            
-             let fileName = uuid.v4() + '.pdf';
-             theme_file.mv(path.resolve(__dirname, '..', 'static', fileName))
-             const theme = await  ThemeService.updateTheme(theme_title, theme_desc, fileName, theme_id)
-            
-           return res.json(theme)
         } catch (error) {
             next(error)
         }

@@ -10,6 +10,8 @@ import { Link } from "react-router-dom";
 import SelectComp from "../components/SelectComp";
 import '../resources/styles/edit.css'
 import {useNavigate} from "react-router-dom"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Edit = () => {
     const history = useNavigate()
     const { id } = useParams();
@@ -31,36 +33,55 @@ const Edit = () => {
     const selectFile = e => {
         setImgFile(e.target.files[0])
     }
+
+
+
+    const handleInputChange = e => {
+        const { name, value } = e.target
+        setCourse({ ...course, [name]: value })
+    }
+    const handleThemeChange = e => {
+        const { name, value } = e.target
+        setTheme({ ...theme, [name]: value })
+    }
+
     useEffect(() => {
         fetchCourseOneEdit(id).then(data => setCourse(data))
         fetchCategories().then(data => setCategories(data))
         fetchThemes(id).then(data => setThemes(data))
     }, [])
+
+
     const category = categories.find((item) => {
 
         return item.id === course.category_id
     })
 
-    const addCourse = () => {
-        const formData = new FormData();
-        formData.append('imgFile', imgFile);
-        formData.append('course_title', courseTitle)
-        formData.append('course_desc', courseDesc)
-        
-        formData.append('id', course.id)
-        const result = updateCourse(formData).then(data => { setCourse(data) })
+    const courseUpdate = () => {
 
+        const {id, course_img, course_title, course_desc } = course
+        
+        const formData = new FormData();
+        imgFile == null ? formData.append('imgFile', course_img) : formData.append('imgFile', imgFile)
+        formData.append('course_title', course_title)
+        formData.append('course_desc', course_desc)
+        formData.append('id', id)
+
+        updateCourse(formData)
+        fetchCourseOneEdit(id).then(data => setCourse(data))
     }
 
     const update = () => {
-
+        console.log(theme)
+        const {id, theme_title, theme_desc, theme_file} = theme
         const themeData = new FormData();
-        themeData.append('theme_id', theme.id)
-        themeData.append('theme_title', themeTitle)
-        themeData.append('theme_desc', themeDesc)
-        themeData.append('theme_file', themeFile)
+        themeFile == null ? themeData.append('theme_file', theme_file) : themeData.append('theme_file', themeFile)
+        themeData.append('theme_id', id)
+        themeData.append('theme_title', theme_title)
+        themeData.append('theme_desc', theme_desc)
+        
         updateTheme(themeData)
-        fetchThemes(id).then(data => setThemes(data))
+        
         setModalActive(false)
     }
     const themeDelete = () => {
@@ -68,6 +89,7 @@ const Edit = () => {
         fetchThemes(id).then(data => setThemes(data))
         setDeleteActive(false)
     }
+    const notify = (text) => toast(text);
     return (
         
         <div className="course-wrapper">
@@ -83,13 +105,13 @@ const Edit = () => {
                         <label className='course-label' htmlFor="">Выбрать новую картинку курса:</label>
                         <input onChange={selectFile} className='course-create_file' type="file" />
                         <label className='course-label' htmlFor="">Заголовок курса:</label>
-                        <input  placeholder={course.course_title} onChange={(e) => setCourseTitle(e.target.value)} type="text" />
-                        <button onClick={() => { addCourse(); history('/cabinet')  }}  className='course-create_button'>Обновить курс</button>
+                        <input  value={course.course_title} onChange={handleInputChange} type="text" name="course_title" />
+                        <button onClick={() => { courseUpdate(); notify("Курс обновлен")  }}  className='course-create_button'>Обновить курс</button>
                         
                     </div>
                     <div>
                         <label className='course-label' htmlFor="">Описание курса:</label>
-                        <textarea onChange={(e) => setCourseDesc(e.target.value)} cols="30" rows="10" placeholder={course.course_desc}></textarea>
+                        <textarea onChange={handleInputChange} name="course_desc" cols="30" rows="10" value={course.course_desc}></textarea>
                     </div>
                 </div>
                 <div className="theme-edit">
@@ -127,15 +149,17 @@ const Edit = () => {
             </div>
             
             <Modal active={modalActive} setActive={setModalActive} >
-                <input onChange={(e) => setThemeTitle(e.target.value)} placeholder={theme.theme_title} className="theme-input__title" type="text" />
-                <textarea onChange={(e) => setThemeDesc(e.target.value)} placeholder={theme.theme_desc} className="theme-input__desc" name="" id="" cols="30" rows="10"></textarea>
+                <input onChange={handleThemeChange} value={theme.theme_title} className="theme-input__title" name="theme_title" type="text" />
+                <textarea onChange={handleThemeChange} value={theme.theme_desc} className="theme-input__desc" name="theme_desc" id="" cols="30" rows="10"></textarea>
+                <p className="theme-file_title">{theme.theme_title}.pdf</p>
                 <input onChange={selectThemeFile}  className="theme-input__title" type="file" />
-                <div className="theme-buttons"><button onClick={() => {update(); }}>Изменить</button><button onClick={() => setModalActive(false) }>Отмена</button></div>
+                <div className="theme-buttons"><button onClick={() => {update();fetchThemes(id).then(data => setThemes(data)) }}>Изменить</button><button onClick={() => setModalActive(false) }>Отмена</button></div>
             </Modal>
             <Modal active={deleteAcitve} setActive={setDeleteActive}>
                 <h2 className="delete-title">Вы уверены?</h2>
                 <div className="theme-buttons delete"><button onClick={() => themeDelete()} >Удалить</button><button onClick={() => setModalActive(false) }>Отмена</button></div>
             </Modal>
+            <ToastContainer />
         </div>
 
             )
